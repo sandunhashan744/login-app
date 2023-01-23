@@ -11,20 +11,6 @@ export async function getuserName(){
     let decode = jwtDecode(token);
     return decode;
 }
-// //
-
-// export async function getuserDetails(){
-//     const token = localStorage.getItem('token');
-//     if(!token) return Promise.reject("Cann't have a Token");
-//     let decode = jwtDecode(token);
-//     const{username} = decode;
-
-//     const {data} = await axios.get(`/api/getUser/${username}`);
-//     let test = Promise.resolve(data)
-//     console.log(test)
-
-// }
-//
 
 // Authentication Function
 export async function authenticate(username){
@@ -65,8 +51,10 @@ export async function registerUser(credentials){
 
         return Promise.resolve(msg);
 
-    } catch (error) {
-        return Promise.reject({ error });
+    } catch (error ) {
+
+        return Promise.reject(error.response.data);
+        
     }
 
 }

@@ -36,6 +36,7 @@ export async function register(req, res){
                 resolve()
             })
         })
+        
         //check the Email
         const ExistEmail = new Promise((resolve, reject) =>{
             UserModel.findOne({email}, function(err, email){

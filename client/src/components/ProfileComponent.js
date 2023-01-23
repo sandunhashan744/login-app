@@ -30,7 +30,7 @@ const ProfileComponent = () => {
     validateOnChange: false,
     onSubmit : async values => {
       values = await Object.assign(values, {profile: file || apiData?.profile || ''})
-      console.log(values)
+     // console.log(values)
       let udateUserPromise = updateUser(values);
       toast.promise(udateUserPromise,{
         loading : 'Updating...',
@@ -43,7 +43,8 @@ const ProfileComponent = () => {
   // for image upload
   const onUpload = async e =>{
     const base64 = await convetBase64(e.target.files[0]);
-    setFile(base64);
+    //setFile(base64);
+    setFile(e.target.files[0]);
   }
 
   // logout handler
